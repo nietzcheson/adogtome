@@ -1,0 +1,34 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+          <div class="col-lg-4">
+              {% include 'AppBundle::Includes/carousel.html.twig'%}
+              <p>
+                  <strong>{{ pet.pet }}</strong>
+              </p>
+          </div>
+          <div class="col-lg-4">
+              <p class="lead">
+                  {{ pet.description }}
+              </p>
+          </div>
+          <div class="col-lg-4">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Breed:</strong> {{ pet.breeds.breed }}</li>
+                <li class="list-group-item"><strong>Gender:</strong> {{ pet.gender }}</li>
+              </ul>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-primary">Adopt</button>
+            <button type="button" class="btn btn-warning">Favorite</button>
+          </div>
+      </div>
+    </div>
+
+{% endblock %}
