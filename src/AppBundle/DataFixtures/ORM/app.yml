@@ -1,0 +1,11 @@
+AppBundle\Entity\Pets:
+    pets{1..100}:
+        pet: <name()>
+        description: <paragraph()>
+        gender: 1
+        breeds: @breeds<current()>
+
+AppBundle\Entity\Breeds:
+    breeds{1..100}:
+        breed: <breeds()>
+        description: <paragraph()>
