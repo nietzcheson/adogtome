@@ -2,6 +2,7 @@
 
 {% block body %}
     <div class="row">
+
         {% for pet in pets %}
         <div class="col-xs-6 col-lg-4">
             <p><strong>{{ pet.pet }}</strong></p>
@@ -23,5 +24,8 @@
             </div>
         </div>
         {% endfor %}
+</div>
+<div class="navigation text-center">
+    {{ knp_pagination_render(pets) }}
 </div>
 {% endblock %}

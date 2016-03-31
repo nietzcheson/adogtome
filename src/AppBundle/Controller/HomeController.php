@@ -20,12 +20,21 @@ class HomeController extends Controller
 
         $pets = $em->getRepository('AppBundle:Pets')->findAll();
 
+        $paginator  = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $pets, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            9/*limit per page*/
+        );
+
         $petsForm = $this->petForm();
 
         return array(
             'title' => 'AdogToMe',
-            'pets' => $pets,
-            'pets_form' => $petsForm->createView()
+            'pets' => $pagination,
+            'pets_form' => $petsForm->createView(),
+            'pagination' => $pagination
         );
     }
 
