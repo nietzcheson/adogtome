@@ -9,7 +9,7 @@ var gulp = require('gulp'),
        //watch files
        var files = [
          'css/app.css',
-         'scripts/**/*.js',
+         'js/**/*.js',
          'images/**/*',
          '../views/**/*.twig'
        ];

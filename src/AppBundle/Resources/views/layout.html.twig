@@ -15,53 +15,33 @@
     <![endif]-->
   </head>
   <body>
-          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand pull-left" href="{{ path('homepage') }}">
-                    <!--<img src="{# asset('bundles/app/img/adog.svg') #}" alt="" />-->
-                    A Dog To Me
-                </a>
-              </div>
-
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
-                  <li><a href="#"></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <div class="btn-group">
-                       <button type="button" class="btn btn-primary navbar-btn">Sign in | Sing up</button>
-                    </div>
-
-
-                </ul>
-              </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
+          {% include 'AppBundle::Partials/navbar.html.twig' %}
           <div class="container content">
+              <div class="col-lg-12" id="alertsPets"></div>
               <div class="col-lg-3">
                   <div class="panel panel-default">
                     <div class="panel-body">
-                        <form class="" action="index.html" method="post">
-                            {{ form_widget(pets_form) }}
-                            <button type="button" class="btn btn-danger btn-block">Search</button>
-                        </form>
+                        {{ SearchPets() }}
                     </div>
                   </div>
               </div>
               <div class="col-lg-9">
-                  {% block body %}{% endblock %}
+                  <div class="col-lg-12">
+                      <div id="resultSearchPets"></div>
+                  </div>
+                  <div class="col-lg-12"  id="homePets">
+                      {% block body %}{% endblock %}
+                  </div>
+              </div>
+              <div class="col-lg-9">
+                  {% block foot_content %}{% endblock %}
               </div>
           </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{{ asset('bundles/app/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('bundles/app/js/app.js') }}"></script>
+
   </body>
 </html>

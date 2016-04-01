@@ -17,7 +17,7 @@ class AppFixtures extends DataFixtureLoader
     public function breeds()
     {
         $breeds = array(
-            'afgano',
+            'Afgano',
             'Airedale Terrier',
             'Akita',
             'American Staffordshire Terrier',

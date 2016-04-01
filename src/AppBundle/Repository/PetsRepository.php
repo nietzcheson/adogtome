@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class PetsRepository extends EntityRepository
 {
+
+    public function findBreedAndGender($breed, $gender)
+    {
+        try {
+            return $this->getEntityManager()->createQuery(
+                'SELECT pets FROM AppBundle:Pets pets
+                 LEFT JOIN pets.breeds breeds
+                 WHERE breeds.id = :breed
+                 AND pets.gender = :gender
+                '
+            )
+            ->setParameter('breed', $breed)
+            ->setParameter('gender', $gender)
+            ->getResult();
+
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
 }

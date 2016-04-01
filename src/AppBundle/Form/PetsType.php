@@ -15,7 +15,11 @@ class PetsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('breeds','entity', array('class' => 'AppBundle:Breeds','property'  => 'breed'))
+            ->add('breeds','entity', array(
+                'class' => 'AppBundle:Breeds',
+                'property'  => 'breed',
+                'empty_value' => '---Choose---'
+            ))
             ->add('gender','choice', array(
                 'choices' => array(1 => 'Female', 2 => 'Male'),
                 'expanded' => true

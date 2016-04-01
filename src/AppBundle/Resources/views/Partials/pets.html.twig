@@ -1,0 +1,21 @@
+{% for pet in pets %}
+<div class="col-xs-6 col-lg-4">
+    <p><strong>{{ pet.pet }}</strong></p>
+    <a href="{{ path('pet', { id: pet.id }) }}" class="thumbnail">
+        {% set imgPet = random(['aranza.jpg','caro.jpg','chule.jpg','karlita.jpg','krystal.jpg']) %}
+      <img src="{{ asset('uploads/pets/dogs/') }}{{ imgPet }}" alt="..." class="img-rounded">
+    </a>
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Breed:</strong> {{ pet.breeds.breed|slice(0,18) }}</li>
+            <li class="list-group-item"><strong>Gender:</strong> {{ pet.gender }}</li>
+          </ul>
+          {{ pet.description|slice(0,50) }}
+          <hr>
+          <a href="{{ path('pet', { id: pet.id }) }}" class="btn btn-info btn-sm btn-block">More</a>
+          <button type="button" class="btn btn-primary btn-sm btn-block">Adop</button>
+      </div>
+    </div>
+</div>
+{% endfor %}

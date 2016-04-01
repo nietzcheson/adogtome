@@ -1,0 +1,7 @@
+services:
+    search_pets.extension:
+        class: AppBundle\Extension\SearchPets
+        tags:
+            - { name: twig.extension }
+        calls:
+            - [setFormFactory, ['@form.factory']]

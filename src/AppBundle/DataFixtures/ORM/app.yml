@@ -2,7 +2,7 @@ AppBundle\Entity\Pets:
     pets{1..100}:
         pet: <name()>
         description: <paragraph()>
-        gender: 1
+        gender: <numberBetween(1,2)>
         breeds: @breeds<current()>
 
 AppBundle\Entity\Breeds:
