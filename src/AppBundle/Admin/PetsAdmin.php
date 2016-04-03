@@ -16,7 +16,11 @@ class PetsAdmin extends Admin
                 ->add('pet')
                 ->add('description')
                 ->add('gender','choice', array(
-                    'choices' => array(1 => 'Hembra', 2 => 'Macho'),
+                    'choices' => array(1 => 'Female', 2 => 'Male'),
+                    'expanded' => true
+                ))
+                ->add('size','choice', array(
+                    'choices' => array(1 => 'Small', 2 => 'Medium', 3 => 'Large'),
                     'expanded' => true
                 ))
             ->end()

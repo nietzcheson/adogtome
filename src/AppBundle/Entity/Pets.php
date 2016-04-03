@@ -49,9 +49,16 @@ class Pets
     private $gender;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="size", type="integer", nullable=true)
+     */
+    private $size;
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,7 +81,7 @@ class Pets
     /**
      * Get pet
      *
-     * @return string 
+     * @return string
      */
     public function getPet()
     {
@@ -97,7 +104,7 @@ class Pets
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -120,7 +127,7 @@ class Pets
     /**
      * Get gender
      *
-     * @return integer 
+     * @return integer
      */
     public function getGender()
     {
@@ -143,10 +150,33 @@ class Pets
     /**
      * Get breeds
      *
-     * @return \AppBundle\Entity\Breeds 
+     * @return \AppBundle\Entity\Breeds
      */
     public function getBreeds()
     {
         return $this->breeds;
+    }
+
+    /**
+     * Set size
+     *
+     * @param integer $size
+     * @return Pets
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return integer 
+     */
+    public function getSize()
+    {
+        return $this->size;
     }
 }

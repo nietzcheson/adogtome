@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#singIn" id="singIn-tab" role="tab" data-toggle="tab" aria-controls="singIn" aria-expanded="true">Sing in</a></li>
+    <li role="presentation"><a href="#singUp" role="tab" id="singUp-tab" data-toggle="tab" aria-controls="singUp">Sing Up</a></li>
+</ul>
+<hr>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="singIn" aria-labelledby="singIn-tab">
+        {% include 'AppBundle::Partials/sing-in-form.html.twig'%}
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="singUp" aria-labelledby="singIn-tab">
+        {% include 'AppBundle::Partials/sing-up-form.html.twig'%}
+    </div>
+</div>
