@@ -29,6 +29,14 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
 
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
+
+            new Sonata\UserBundle\SonataUserBundle(),
+
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+            #new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

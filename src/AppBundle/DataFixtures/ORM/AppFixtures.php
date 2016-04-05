@@ -2,11 +2,24 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Users;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class AppFixtures extends DataFixtureLoader
+class AppFixtures extends DataFixtureLoader implements ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    public function setContainer(ContainerInterface $container = NULL)
+    {
+        $this->container = $container;
+    }
+
     public function getFixtures()
     {
         return [
@@ -29,5 +42,12 @@ class AppFixtures extends DataFixtureLoader
         );
 
         return $breeds[array_rand($breeds)];
+    }
+
+    public function encoder($plain, $user)
+    {
+        $encoder = $this->container->get('security.encoder_factory');
+
+        return $encoder->getEncoder($user)->encodePassword($plain,$user->getSalt());
     }
 }

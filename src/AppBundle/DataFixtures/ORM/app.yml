@@ -9,3 +9,18 @@ AppBundle\Entity\Breeds:
     breeds{1..100}:
         breed: <breeds()>
         description: <paragraph()>
+
+AppBundle\Entity\Users:
+    admin:
+        username: admin
+        email: admin@admin.com
+        roles: [ROLE_ADMIN]
+        password: <encoder('admin', @admin)>
+        enabled: 1
+
+    user:
+        username: user
+        email: user@user.com
+        roles: [ROLE_USER]
+        password: <encoder('user', @user)>
+        enabled: 1
